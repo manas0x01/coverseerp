@@ -197,6 +197,50 @@
 
     .about .col-lg-6.position-relative img{border-radius:16px;box-shadow:0 15px 50px rgba(11,45,107,.15);}
     .features-image img{border-radius:16px;}
+
+    /* PARTNER CARDS — Premium White Glass Design */
+    .partner-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      box-shadow: 0 4px 16px rgba(11, 45, 107, 0.04);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .partner-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 132, 255, 0.15);
+      border-color: #0084ff;
+    }
+    .partner-logo {
+      max-height: 44px;
+      max-width: 155px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(15%);
+      transition: all 0.3s ease;
+    }
+    .partner-card:hover .partner-logo {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+    #gallery .swiper-pagination-bullet {
+      background: #0084ff;
+      opacity: 0.3;
+      transition: all 0.3s ease;
+    }
+    #gallery .swiper-pagination-bullet-active {
+      opacity: 1;
+      width: 24px;
+      border-radius: 8px;
+      background: #0084ff;
+    }
     
     /* NAVBAR BRAND — white on dark header */
     .logo .brand-name{font-family:'Raleway',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px;color:#ffffff!important;margin-left:10px;text-shadow:0 1px 3px rgba(0,0,0,.3);}
@@ -636,22 +680,73 @@
     </div></div>
   </section>
 
-  <!-- PARTNERS -->
-  <section id="gallery" class="gallery section">
-    <div class="container section-title" data-aos="fade-up" style="padding-bottom:0px;"><h2>Our Partners</h2></div>
+  <!-- PARTNERS & INTEGRATIONS -->
+  <section id="gallery" class="gallery section" style="padding: 60px 0 70px 0; background: #f8fafc;">
+    <div class="container section-title text-center" data-aos="fade-up" style="padding-bottom: 25px;">
+      <h2>Our Partners &amp; Ecosystem</h2>
+      <p style="color: #64748b; font-size: 15px; margin-top: 6px;">Integrated with India's leading cloud, banking, and payment infrastructure</p>
+    </div>
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="swiper init-swiper">
-        <script type="application/json" class="swiper-config">{"loop":true,"speed":600,"autoplay":{"delay":5000},"slidesPerView":"auto","centeredSlides":true,"pagination":{"el":".swiper-pagination","type":"bullets","clickable":true},"breakpoints":{"320":{"slidesPerView":1,"spaceBetween":0},"768":{"slidesPerView":3,"spaceBetween":20},"1200":{"slidesPerView":5,"spaceBetween":20}}}</script>
-        <div class="swiper-wrapper align-items-center">
-          <div class="swiper-slide"><img src="partner-1.jpg" class="img-fluid" alt="TCS" style="max-height:80px;object-fit:contain;padding:8px;"></div>
-          <div class="swiper-slide"><img src="partner-2.jpg" class="img-fluid" alt="Infosys" style="max-height:80px;object-fit:contain;padding:8px;"></div>
-          <div class="swiper-slide"><img src="partner-3.jpg" class="img-fluid" alt="Wipro" style="max-height:80px;object-fit:contain;padding:8px;"></div>
-          <div class="swiper-slide"><img src="partner-4.jpg" class="img-fluid" alt="HCL Tech" style="max-height:80px;object-fit:contain;padding:8px;"></div>
-          <div class="swiper-slide"><img src="partner-5.jpg" class="img-fluid" alt="Tech Mahindra" style="max-height:80px;object-fit:contain;padding:8px;"></div>
-          <div class="swiper-slide"><img src="partner-6.jpg" class="img-fluid" alt="Razorpay" style="max-height:80px;object-fit:contain;padding:8px;"></div>
-          <div class="swiper-slide"><img src="partner-7.jpg" class="img-fluid" alt="Microsoft Partner" style="max-height:80px;object-fit:contain;padding:8px;"></div>
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": { "delay": 3500 },
+            "slidesPerView": "auto",
+            "centeredSlides": false,
+            "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true },
+            "breakpoints": {
+              "320": { "slidesPerView": 2, "spaceBetween": 14 },
+              "768": { "slidesPerView": 3, "spaceBetween": 20 },
+              "992": { "slidesPerView": 4, "spaceBetween": 20 },
+              "1200": { "slidesPerView": 4, "spaceBetween": 24 }
+            }
+          }
+        </script>
+        <div class="swiper-wrapper align-items-center py-2">
+          <div class="swiper-slide">
+            <div class="partner-card">
+              <img src="partner-aws.svg" alt="AWS Cloud Partner" class="partner-logo">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="partner-card">
+              <img src="partner-microsoft.svg" alt="Microsoft Partner" class="partner-logo">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="partner-card">
+              <img src="partner-razorpay.svg" alt="Razorpay Payments" class="partner-logo">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="partner-card">
+              <img src="partner-googlecloud.svg" alt="Google Cloud" class="partner-logo">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="partner-card">
+              <img src="partner-gstn.svg" alt="GSTN Suvidha Authorized" class="partner-logo">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="partner-card">
+              <img src="partner-icici.svg" alt="ICICI Bank API" class="partner-logo">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="partner-card">
+              <img src="partner-hdfc.svg" alt="HDFC Bank" class="partner-logo">
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="partner-card">
+              <img src="partner-tcs.svg" alt="TATA / TCS" class="partner-logo">
+            </div>
+          </div>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination mt-4"></div>
       </div>
     </div>
   </section>
