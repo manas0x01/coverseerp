@@ -1,0 +1,3931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>CoverseERP — All-in-One Cloud ERP, HRMS, CRM & Operations Platform</title>
+  <meta name="description" content="CoverseERP brings Accounting, HRMS, CRM, Desktop Monitoring, Inventory, and Field Operations into one unified platform for multi-company management." />
+  <meta name="keywords" content="ERP, HRMS, CRM, Desktop Monitoring, Multi Company ERP, Accounting Software, Inventory Management, CoverseERP" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300a1ff'/><path d='M8 16h16M16 8v16' stroke='%23fff' stroke-width='3' stroke-linecap='round'/></svg>" type="image/svg+xml">
+
+  <!-- Google Fonts: Poppins, Raleway, Roboto, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Raleway:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome & Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    /* =========================================================
+       TRACOLAB DESIGN SYSTEM & VARIABLES
+       ========================================================= */
+    :root {
+      --default-font: "Roboto", system-ui, -apple-system, sans-serif;
+      --heading-font: "Raleway", sans-serif;
+      --nav-font: "Poppins", sans-serif;
+
+      --accent-color: #00a1ff;
+      --accent-hover: #0084d6;
+      --accent-light: #e6f6ff;
+      --accent-gradient: linear-gradient(135deg, #00a1ff 0%, #0072ce 100%);
+      --teal-accent: #3fbbc0;
+      
+      --background-color: #ffffff;
+      --light-background: #f7fcfc;
+      --surface-color: #ffffff;
+      
+      --default-color: #4b5868;
+      --heading-color: #1e293b;
+      --heading-dark: #0f172a;
+      --contrast-color: #ffffff;
+      --muted-color: #64748b;
+      --border-color: #e2e8f0;
+      
+      --nav-color: #334155;
+      --nav-hover-color: #00a1ff;
+      
+      --shadow-sm: 0 2px 8px rgba(0, 161, 255, 0.06);
+      --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 16px 40px rgba(0, 161, 255, 0.12);
+      --shadow-hover: 0 20px 45px rgba(0, 161, 255, 0.18);
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-pill: 50px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--default-font);
+      color: var(--default-color);
+      background-color: var(--background-color);
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--heading-font);
+      color: var(--heading-color);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    a:hover {
+      color: var(--accent-color);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    img, svg {
+      vertical-align: middle;
+      max-width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Section Structure */
+    .section {
+      padding: 85px 0;
+      position: relative;
+    }
+
+    .section.light-background {
+      background-color: var(--light-background);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section-title span.badge-tag {
+      display: inline-block;
+      font-family: var(--nav-font);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      background: var(--accent-light);
+      padding: 5px 16px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      letter-spacing: -0.5px;
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--muted-color);
+    }
+
+    .section-title::after {
+      content: "";
+      width: 50px;
+      height: 3px;
+      background: var(--accent-color);
+      display: block;
+      margin: 16px auto 0;
+      border-radius: 3px;
+    }
+
+    /* Buttons */
+    .btn-traco {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-family: var(--nav-font);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(0, 161, 255, 0.2);
+    }
+
+    .btn-traco.btn-primary {
+      background: var(--accent-gradient);
+      color: #ffffff;
+    }
+
+    .btn-traco.btn-primary:hover {
+      background: linear-gradient(135deg, #008be0 0%, #005fa8 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 161, 255, 0.35);
+      color: #ffffff;
+    }
+
+    .btn-traco.btn-outline {
+      background: transparent;
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      box-shadow: none;
+    }
+
+    .btn-traco.btn-outline:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-traco.btn-white {
+      background: #ffffff;
+      color: var(--accent-color);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-traco.btn-white:hover {
+      background: #f8fafc;
+      color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 8px 18px;
+      font-size: 0.86rem;
+    }
+
+    /* =========================================================
+       HEADER & NAVIGATION (TRACOLAB STYLE WITH MEGA-MENU)
+       ========================================================= */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--heading-font);
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--heading-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .logo .logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 1.15rem;
+      box-shadow: 0 4px 12px rgba(0, 161, 255, 0.3);
+    }
+
+    .logo span.badge-sub {
+      font-size: 0.65rem;
+      font-family: var(--nav-font);
+      font-weight: 600;
+      color: var(--accent-color);
+      background: var(--accent-light);
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Nav Menu */
+    .navmenu {
+      display: flex;
+      align-items: center;
+    }
+
+    .navmenu > ul {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .navmenu > ul > li {
+      position: relative;
+    }
+
+    .navmenu > ul > li > a {
+      font-family: var(--nav-font);
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--nav-color);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 0;
+    }
+
+    .navmenu > ul > li > a:hover,
+    .navmenu > ul > li.active > a {
+      color: var(--accent-color);
+    }
+
+    .navmenu > ul > li > a i.dropdown-chevron {
+      font-size: 0.75rem;
+      transition: transform 0.2s ease;
+    }
+
+    .navmenu > ul > li:hover > a i.dropdown-chevron {
+      transform: rotate(180deg);
+      color: var(--accent-color);
+    }
+
+    /* MEGA DROPDOWN (TRACOLAB STYLE) */
+    .mega-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      width: 900px;
+      max-width: 95vw;
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.12);
+      border: 1px solid var(--border-color);
+      padding: 28px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+      z-index: 1000;
+    }
+
+    .navmenu > ul > li:hover .mega-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .mega-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .mega-column h6 {
+      font-family: var(--nav-font);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--heading-color);
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mega-column h6 i {
+      color: var(--accent-color);
+    }
+
+    .mega-links li {
+      margin-bottom: 9px;
+    }
+
+    .mega-links a {
+      font-size: 0.88rem;
+      color: var(--default-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+
+    .mega-links a i {
+      font-size: 0.82rem;
+      color: var(--muted-color);
+      transition: all 0.2s ease;
+    }
+
+    .mega-links a:hover {
+      background: var(--accent-light);
+      color: var(--accent-hover);
+      padding-left: 12px;
+    }
+
+    .mega-links a:hover i {
+      color: var(--accent-color);
+    }
+
+    /* Header Action Buttons */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .login-link {
+      font-family: var(--nav-font);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--heading-color);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-color);
+    }
+
+    .login-link:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      background: var(--accent-light);
+    }
+
+    /* Mobile Nav Toggle */
+    .mobile-nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--heading-color);
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       HERO CAROUSEL SECTION (TRACOLAB SIGNATURE SLIDER)
+       ========================================================= */
+    .hero-section {
+      background: linear-gradient(180deg, #f0f8ff 0%, #ffffff 100%);
+      padding: 70px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 161, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+      z-index: 0;
+    }
+
+    .hero-slider-container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-slide {
+      display: none;
+      animation: fadeInSlide 0.6s ease-out forwards;
+    }
+
+    .hero-slide.active {
+      display: block;
+    }
+
+    @keyframes fadeInSlide {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 161, 255, 0.25);
+      box-shadow: 0 4px 12px rgba(0, 161, 255, 0.08);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      font-family: var(--nav-font);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 22px;
+    }
+
+    .hero-content .hero-badge i {
+      animation: pulseDot 1.5s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.3rem, 4vw, 3.4rem);
+      font-weight: 800;
+      color: var(--heading-dark);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 span.text-highlight {
+      color: var(--accent-color);
+      background: linear-gradient(120deg, #00a1ff 0%, #0066cc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p.hero-lead {
+      font-size: 1.12rem;
+      color: var(--muted-color);
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.86rem;
+      color: var(--muted-color);
+      flex-wrap: wrap;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta i {
+      color: #10b981;
+    }
+
+    /* Slider Navigation Controls */
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .slider-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: var(--radius-pill);
+      background: #cbd5e1;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .slider-dot.active {
+      width: 32px;
+      background: var(--accent-color);
+    }
+
+    .slider-arrows {
+      display: flex;
+      gap: 8px;
+      margin-left: 12px;
+    }
+
+    .slider-arrow-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      color: var(--heading-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .slider-arrow-btn:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+
+    /* Hero Visual Card: Interactive Live Cloud ERP Console */
+    .hero-console-wrap {
+      position: relative;
+    }
+
+    .hero-console {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(0, 161, 255, 0.18);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-console:hover {
+      transform: translateY(-4px);
+    }
+
+    .console-header {
+      background: #f8fafc;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .console-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .console-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .console-dots span:nth-child(1) { background: #ef4444; }
+    .console-dots span:nth-child(2) { background: #f59e0b; }
+    .console-dots span:nth-child(3) { background: #10b981; }
+
+    .console-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .console-body {
+      padding: 22px;
+    }
+
+    .console-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .c-stat-box {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .c-stat-box:hover {
+      border-color: var(--accent-color);
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .c-stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted-color);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .c-stat-value {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--heading-dark);
+      font-family: var(--heading-font);
+    }
+
+    .c-stat-value.green {
+      color: #10b981;
+    }
+
+    .c-stat-value.blue {
+      color: var(--accent-color);
+    }
+
+    /* Live Mini Chart Preview */
+    .console-chart-box {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin-bottom: 18px;
+    }
+
+    .chart-box-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 12px;
+    }
+
+    .chart-box-title span.tag {
+      color: #10b981;
+      font-size: 0.72rem;
+      background: #ecfdf5;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .console-bars-mock {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 60px;
+    }
+
+    .c-bar {
+      flex: 1;
+      background: linear-gradient(180deg, var(--accent-color) 0%, rgba(0, 161, 255, 0.4) 100%);
+      border-radius: 3px 3px 0 0;
+      transition: height 0.5s ease;
+      position: relative;
+    }
+
+    .c-bar:hover {
+      background: var(--accent-hover);
+    }
+
+    /* Console Live Feed */
+    .console-activity {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .c-feed-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: #f8fafc;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      border-left: 3px solid var(--accent-color);
+    }
+
+    .c-feed-item span.status {
+      font-weight: 600;
+      color: var(--accent-color);
+      font-size: 0.75rem;
+    }
+
+    /* Floating Pill Badge */
+    .floating-pill {
+      position: absolute;
+      background: #ffffff;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--heading-dark);
+      z-index: 2;
+    }
+
+    .floating-pill.pill-top {
+      top: -18px;
+      right: -15px;
+    }
+
+    .floating-pill.pill-bottom {
+      bottom: -18px;
+      left: -15px;
+    }
+
+    .floating-pill i {
+      color: var(--accent-color);
+      font-size: 1.1rem;
+    }
+
+    /* =========================================================
+       APP ECOSYSTEM QUICK RIBBON (TRACOLAB STYLE)
+       ========================================================= */
+    .apps-ribbon {
+      padding: 24px 0;
+      background: #ffffff;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .ribbon-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .ribbon-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      font-family: var(--nav-font);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--heading-color);
+      white-space: nowrap;
+      transition: all 0.25s ease;
+    }
+
+    .ribbon-item i {
+      color: var(--accent-color);
+      font-size: 1rem;
+    }
+
+    .ribbon-item:hover {
+      background: var(--accent-light);
+      border-color: var(--accent-color);
+      color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       CALL TO ACTION ACCENT BANNER (TRACOLAB STYLE)
+       ========================================================= */
+    .call-to-action {
+      background: linear-gradient(135deg, #00a1ff 0%, #006ec4 100%);
+      color: #ffffff;
+      padding: 70px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .call-to-action::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
+
+    .cta-text h3 {
+      font-size: 2.2rem;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-text p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 640px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================
+       ABOUT US SECTION (TRACOLAB STYLE)
+       ========================================================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image-card {
+      position: relative;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+    }
+
+    .about-preview-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      color: var(--accent-color);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .about-image-card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--heading-dark);
+    }
+
+    .about-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .metric-box {
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .metric-box h5 {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      margin-bottom: 4px;
+    }
+
+    .metric-box p {
+      font-size: 0.82rem;
+      color: var(--muted-color);
+    }
+
+    .about-content .sub-heading {
+      color: var(--accent-color);
+      font-family: var(--nav-font);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .about-content h3 {
+      font-size: 2.1rem;
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+
+    .about-content p.lead-text {
+      font-size: 1.05rem;
+      color: var(--default-color);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .about-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .about-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .about-feature-item .check-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .about-feature-item div h5 {
+      font-size: 1.02rem;
+      margin-bottom: 3px;
+    }
+
+    .about-feature-item div p {
+      font-size: 0.9rem;
+      color: var(--muted-color);
+    }
+
+    /* =========================================================
+       STATS COUNTER SECTION (TRACOLAB STYLE)
+       ========================================================= */
+    .stats-section {
+      background: #ffffff;
+      padding: 60px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .stat-card {
+      background: var(--light-background);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 30px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-color);
+    }
+
+    .stat-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin: 0 auto 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-card h3 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--heading-dark);
+      font-family: var(--heading-font);
+      margin-bottom: 6px;
+    }
+
+    .stat-card p {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted-color);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* =========================================================
+       PLATFORM FEATURES (ALL-IN-ONE SYSTEM SECTION)
+       ========================================================= */
+    .features-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 45px;
+    }
+
+    .feature-tab-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px 18px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .feature-tab-btn i {
+      font-size: 1.5rem;
+      color: var(--muted-color);
+      transition: color 0.25s ease;
+    }
+
+    .feature-tab-btn h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: var(--heading-color);
+    }
+
+    .feature-tab-btn span {
+      font-size: 0.8rem;
+      color: var(--muted-color);
+    }
+
+    .feature-tab-btn:hover,
+    .feature-tab-btn.active {
+      background: #ffffff;
+      border-color: var(--accent-color);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .feature-tab-btn.active i {
+      color: var(--accent-color);
+    }
+
+    .feature-tab-btn.active h4 {
+      color: var(--accent-color);
+    }
+
+    .feature-tab-content {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-pane {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      animation: fadeInSlide 0.5s ease-out;
+    }
+
+    .feature-pane.active {
+      display: grid;
+    }
+
+    .pane-text h3 {
+      font-size: 1.85rem;
+      margin-bottom: 14px;
+      color: var(--heading-dark);
+    }
+
+    .pane-text p {
+      font-size: 1rem;
+      color: var(--default-color);
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    .pane-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .pane-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--heading-color);
+    }
+
+    .pane-bullets li i {
+      color: var(--accent-color);
+      font-size: 1.1rem;
+    }
+
+    .pane-card-mock {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pane-card-mock .mock-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 18px;
+    }
+
+    .pane-card-mock .mock-header h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .pane-card-mock .mock-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border-color);
+      font-size: 0.88rem;
+    }
+
+    .pane-card-mock .mock-row span:last-child {
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    /* =========================================================
+       OUR SERVICES / MODULES SECTION (TRACOLAB EXACT GRID)
+       ========================================================= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 34px 28px;
+      transition: all 0.35s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .service-item:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(0, 161, 255, 0.4);
+    }
+
+    .service-item .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 12px;
+      background: var(--accent-light);
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+      transition: all 0.3s ease;
+    }
+
+    .service-item:hover .icon {
+      background: var(--accent-gradient);
+      color: #ffffff;
+      transform: scale(1.08);
+      box-shadow: 0 8px 18px rgba(0, 161, 255, 0.3);
+    }
+
+    .service-item h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--heading-dark);
+      transition: color 0.25s ease;
+    }
+
+    .service-item:hover h3 {
+      color: var(--accent-color);
+    }
+
+    .service-item p {
+      font-size: 0.94rem;
+      color: var(--muted-color);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .service-item .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .service-item .service-tags span {
+      font-size: 0.76rem;
+      background: #f1f5f9;
+      color: var(--default-color);
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      font-weight: 500;
+    }
+
+    .service-item .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-top: 14px;
+    }
+
+    .service-item .service-link i {
+      transition: transform 0.2s ease;
+    }
+
+    .service-item:hover .service-link i {
+      transform: translateX(4px);
+    }
+
+    /* =========================================================
+       PARTNERS / TRUST STRIP (TRACOLAB GALLERY STYLE)
+       ========================================================= */
+    .partners-section {
+      padding: 55px 0;
+      background: #ffffff;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .partners-heading {
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--muted-color);
+      margin-bottom: 28px;
+    }
+
+    .partners-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .partner-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--heading-font);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #94a3b8;
+      filter: grayscale(100%);
+      opacity: 0.75;
+      transition: all 0.3s ease;
+    }
+
+    .partner-brand:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      color: var(--heading-dark);
+      transform: scale(1.05);
+    }
+
+    .partner-brand i {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+    }
+
+    /* =========================================================
+       TESTIMONIALS SECTION (TRACOLAB STYLE)
+       ========================================================= */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-color);
+    }
+
+    .testimonial-rating {
+      color: #f59e0b;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 0.98rem;
+      color: var(--default-color);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+      position: relative;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .author-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .author-info h5 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--heading-dark);
+      margin-bottom: 2px;
+    }
+
+    .author-info span {
+      font-size: 0.8rem;
+      color: var(--muted-color);
+    }
+
+    /* =========================================================
+       PRICING SECTION (TRACOLAB STYLE WITH SWITCHER)
+       ========================================================= */
+    .pricing-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 48px;
+      font-family: var(--nav-font);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .switch-btn {
+      position: relative;
+      display: inline-block;
+      width: 52px;
+      height: 28px;
+    }
+
+    .switch-btn input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .switch-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #cbd5e1;
+      transition: 0.3s;
+      border-radius: 34px;
+    }
+
+    .switch-slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .switch-slider {
+      background-color: var(--accent-color);
+    }
+
+    input:checked + .switch-slider:before {
+      transform: translateX(24px);
+    }
+
+    .discount-badge {
+      background: #ecfdf5;
+      color: #059669;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #a7f3d0;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 38px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent-color);
+      box-shadow: 0 12px 35px rgba(0, 161, 255, 0.18);
+      transform: scale(1.03);
+    }
+
+    .pricing-card.featured:hover {
+      transform: scale(1.03) translateY(-6px);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-gradient);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 16px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 10px rgba(0, 161, 255, 0.3);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .pricing-card p.plan-desc {
+      font-size: 0.88rem;
+      color: var(--muted-color);
+      margin-bottom: 24px;
+    }
+
+    .price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .price-wrap .price-amount {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--heading-dark);
+      font-family: var(--heading-font);
+      line-height: 1;
+    }
+
+    .price-wrap .price-period {
+      font-size: 0.92rem;
+      color: var(--muted-color);
+    }
+
+    .pricing-card ul.plan-features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .pricing-card ul.plan-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--default-color);
+    }
+
+    .pricing-card ul.plan-features li i {
+      color: var(--accent-color);
+      font-size: 0.95rem;
+    }
+
+    /* =========================================================
+       FAQ ACCORDION SECTION (TRACOLAB EXACT ACCORDION)
+       ========================================================= */
+    .faq-container {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .faq-item.active {
+      border-color: var(--accent-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-header {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #ffffff;
+      user-select: none;
+    }
+
+    .faq-header h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0;
+      color: var(--heading-dark);
+      transition: color 0.2s ease;
+    }
+
+    .faq-item.active .faq-header h3 {
+      color: var(--accent-color);
+    }
+
+    .faq-icon {
+      font-size: 1rem;
+      color: var(--muted-color);
+      transition: transform 0.3s ease, color 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+      color: var(--accent-color);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      background: #f8fafc;
+      padding: 0 24px;
+    }
+
+    .faq-item.active .faq-body {
+      max-height: 250px;
+      padding: 16px 24px 22px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .faq-body p {
+      font-size: 0.94rem;
+      color: var(--default-color);
+      line-height: 1.65;
+    }
+
+    /* =========================================================
+       CONTACT US & SCHEDULE DEMO SECTION (TRACOLAB STYLE)
+       ========================================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+    }
+
+    .contact-info-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-card .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin: 0 auto 14px;
+    }
+
+    .contact-card h4 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--heading-dark);
+    }
+
+    .contact-card p {
+      font-size: 0.86rem;
+      color: var(--muted-color);
+      line-height: 1.5;
+    }
+
+    .contact-form-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-form-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-form-card p {
+      font-size: 0.92rem;
+      color: var(--muted-color);
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 11px 16px;
+      font-size: 0.92rem;
+      font-family: inherit;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: all 0.2s ease;
+      background: #ffffff;
+      color: var(--heading-dark);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(0, 161, 255, 0.15);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* =========================================================
+       FOOTER (TRACOLAB EXACT RICH FOOTER)
+       ========================================================= */
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 80px 0 30px;
+      font-size: 0.92rem;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-brand .logo {
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      max-width: 320px;
+    }
+
+    .footer-contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.86rem;
+    }
+
+    .footer-contact-details li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .footer-contact-details i {
+      color: var(--accent-color);
+      margin-top: 4px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--nav-font);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .footer-col h4::after {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--accent-color);
+      display: block;
+      margin-top: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .footer-links a i {
+      font-size: 0.7rem;
+      color: var(--accent-color);
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 30px;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.84rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+    }
+
+    .social-btn:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    /* =========================================================
+       MODAL (FREE TRIAL & DEMO)
+       ========================================================= */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      max-width: 540px;
+      width: 100%;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-head {
+      background: var(--accent-gradient);
+      color: #ffffff;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-head h3 {
+      color: #ffffff;
+      font-size: 1.3rem;
+      margin-bottom: 2px;
+    }
+
+    .modal-head p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.84rem;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 1.4rem;
+      cursor: pointer;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      opacity: 1;
+    }
+
+    .modal-content-inner {
+      padding: 28px;
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      z-index: 3000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .toast-msg.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* =========================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================= */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-card.featured {
+        transform: none;
+      }
+      .pricing-card.featured:hover {
+        transform: translateY(-6px);
+      }
+      .features-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .feature-pane {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .mega-dropdown {
+        width: 720px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .navmenu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        height: 100vh;
+        background: #ffffff;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        padding: 80px 24px 30px;
+        transition: right 0.35s ease;
+        overflow-y: auto;
+        z-index: 999;
+      }
+      .navmenu.open {
+        right: 0;
+      }
+      .navmenu > ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+      }
+      .mega-dropdown {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        margin-top: 10px;
+      }
+      .navmenu > ul > li.open .mega-dropdown {
+        display: block;
+      }
+      .mega-grid {
+        grid-template-columns: 1fr;
+      }
+      .mobile-nav-toggle {
+        display: block;
+        z-index: 1001;
+      }
+      .header-actions .login-link {
+        display: none;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-info-cards {
+        grid-template-columns: 1fr;
+      }
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .section {
+        padding: 60px 0;
+      }
+      .section-title h2 {
+        font-size: 1.85rem;
+      }
+      .hero-content h1 {
+        font-size: 2.1rem;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .features-tabs {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- =========================================================
+       HEADER (TRACOLAB MEGA-MENU & NAVIGATION)
+       ========================================================= -->
+  <header id="header" class="header sticky-top">
+    <div class="container branding">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-cube"></i>
+        </div>
+        <span>CoverseERP</span>
+        <span class="badge-sub">Cloud</span>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          
+          <!-- Apps Mega Dropdown (Tracolab 4-Column Layout) -->
+          <li class="has-mega">
+            <a href="javascript:void(0)" class="dropdown-trigger">
+              <span>Apps</span>
+              <i class="fa-solid fa-chevron-down dropdown-chevron"></i>
+            </a>
+            <div class="mega-dropdown">
+              <div class="mega-grid">
+                
+                <!-- Column 1: Finance -->
+                <div class="mega-column">
+                  <h6><i class="fa-solid fa-calculator"></i> Finance & Books</h6>
+                  <ul class="mega-links">
+                    <li><a href="#modules" onclick="openModal('Accounting')"><i class="fa-solid fa-book-journal-whills"></i> General Ledger</a></li>
+                    <li><a href="#modules" onclick="openModal('Invoicing')"><i class="fa-solid fa-file-invoice-dollar"></i> Smart Invoicing</a></li>
+                    <li><a href="#modules" onclick="openModal('Expenses')"><i class="fa-solid fa-receipt"></i> Expense Tracking</a></li>
+                    <li><a href="#modules" onclick="openModal('Spreadsheet BI')"><i class="fa-solid fa-chart-line"></i> BI & Spreadsheets</a></li>
+                    <li><a href="#modules" onclick="openModal('Multi-Company Consolidation')"><i class="fa-solid fa-building-columns"></i> Multi-Entity Rollup</a></li>
+                  </ul>
+                </div>
+
+                <!-- Column 2: Sales & CRM -->
+                <div class="mega-column">
+                  <h6><i class="fa-solid fa-bullseye"></i> Sales & CRM</h6>
+                  <ul class="mega-links">
+                    <li><a href="#modules" onclick="openModal('CRM')"><i class="fa-solid fa-user-group"></i> Omnichannel CRM</a></li>
+                    <li><a href="#modules" onclick="openModal('Pipeline')"><i class="fa-solid fa-filter-circle-dollar"></i> Deals & Pipeline</a></li>
+                    <li><a href="#modules" onclick="openModal('POS Retail')"><i class="fa-solid fa-cash-register"></i> POS Retail & Counter</a></li>
+                    <li><a href="#modules" onclick="openModal('Quotes & Orders')"><i class="fa-solid fa-file-contract"></i> Quotes to Orders</a></li>
+                    <li><a href="#modules" onclick="openModal('Subscriptions')"><i class="fa-solid fa-repeat"></i> Recurring Billing</a></li>
+                  </ul>
+                </div>
+
+                <!-- Column 3: HR & Monitoring -->
+                <div class="mega-column">
+                  <h6><i class="fa-solid fa-users"></i> HRMS & Tracking</h6>
+                  <ul class="mega-links">
+                    <li><a href="#modules" onclick="openModal('HRMS & Payroll')"><i class="fa-solid fa-user-tie"></i> Automated Payroll</a></li>
+                    <li><a href="#modules" onclick="openModal('Attendance & Biometrics')"><i class="fa-solid fa-fingerprint"></i> Biometric Attendance</a></li>
+                    <li><a href="#modules" onclick="openModal('Desktop Monitoring')"><i class="fa-solid fa-desktop"></i> Desktop Monitoring</a></li>
+                    <li><a href="#modules" onclick="openModal('Field GPS Tracking')"><i class="fa-solid fa-map-location-dot"></i> Field Staff GPS Check-in</a></li>
+                    <li><a href="#modules" onclick="openModal('Leave & Shift Planner')"><i class="fa-solid fa-calendar-days"></i> Shifts & Leaves</a></li>
+                  </ul>
+                </div>
+
+                <!-- Column 4: Operations & Supply Chain -->
+                <div class="mega-column">
+                  <h6><i class="fa-solid fa-boxes-stacked"></i> Supply Chain</h6>
+                  <ul class="mega-links">
+                    <li><a href="#modules" onclick="openModal('Inventory')"><i class="fa-solid fa-warehouse"></i> Multi-Warehouse Stock</a></li>
+                    <li><a href="#modules" onclick="openModal('Order Processing')"><i class="fa-solid fa-truck-ramp-box"></i> Order Fulfillment</a></li>
+                    <li><a href="#modules" onclick="openModal('Purchase & Vendors')"><i class="fa-solid fa-cart-flatbed"></i> Purchase Orders</a></li>
+                    <li><a href="#modules" onclick="openModal('Desk & Office Sharing')"><i class="fa-solid fa-chair"></i> Shared Office Booking</a></li>
+                    <li><a href="#modules" onclick="openModal('Manufacturing & BOM')"><i class="fa-solid fa-industry"></i> Manufacturing & BOM</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </li>
+
+          <!-- Industries Mega Dropdown (Tracolab Exact Categories) -->
+          <li class="has-mega">
+            <a href="javascript:void(0)" class="dropdown-trigger">
+              <span>Industries</span>
+              <i class="fa-solid fa-chevron-down dropdown-chevron"></i>
+            </a>
+            <div class="mega-dropdown">
+              <div class="mega-grid">
+                
+                <div class="mega-column">
+                  <h6><i class="fa-solid fa-briefcase"></i> Services</h6>
+                  <ul class="mega-links">
+                    <li><a href="#about" onclick="openModal('IT & Tech Services')"><i class="fa-solid fa-laptop-code"></i> IT & Tech Support</a></li>
+                    <li><a href="#about" onclick="openModal('Law & Consulting')"><i class="fa-solid fa-scale-balanced"></i> Law & Consulting Firms</a></li>
+                    <li><a href="#about" onclick="openModal('Real Estate')"><i class="fa-solid fa-building"></i> Real Estate & Property</a></li>
+                    <li><a href="#about" onclick="openModal('Talent & Staffing')"><i class="fa-solid fa-id-badge"></i> Staffing & Recruiting</a></li>
+                  </ul>
+                </div>
+
+                <div class="mega-column">
+                  <h6><i class="fa-solid fa-store"></i> Retail & Trade</h6>
+                  <ul class="mega-links">
+                    <li><a href="#about" onclick="openModal('Electronics & Hardware')"><i class="fa-solid fa-plug"></i> Electronics & Hardware</a></li>
+                    <li><a href="#about" onclick="openModal('Clothing & Apparel')"><i class="fa-solid fa-shirt"></i> Apparel & Retail Chains</a></li>
+                    <li><a href="#about" onclick="openModal('Grocery & FMCG')"><i class="fa-solid fa-basket-shopping"></i> Supermarkets & FMCG</a></li>
+                    <li><a href="#about" onclick="openModal('Wholesale Distribution')"><i class="fa-solid fa-truck"></i> Wholesale Distributors</a></li>
+                  </ul>
+                </div>
+
+                <div class="mega-column">
+                  <h6><i class="fa-solid fa-helmet-safety"></i> Construction & Works</h6>
+                  <ul class="mega-links">
+                    <li><a href="#about" onclick="openModal('General Contractors')"><i class="fa-solid fa-trowel-bricks"></i> General Contracting</a></li>
+                    <li><a href="#about" onclick="openModal('Architecture & Design')"><i class="fa-solid fa-compass-drafting"></i> Architecture & Engineering</a></li>
+                    <li><a href="#about" onclick="openModal('Solar & Renewable')"><i class="fa-solid fa-solar-panel"></i> Solar Energy Projects</a></li>
+                    <li><a href="#about" onclick="openModal('Field Maintenance')"><i class="fa-solid fa-wrench"></i> Field Maintenance</a></li>
+                  </ul>
+                </div>
+
+                <div class="mega-column">
+                  <h6><i class="fa-solid fa-utensils"></i> Hospitality & More</h6>
+                  <ul class="mega-links">
+                    <li><a href="#about" onclick="openModal('Restaurants & Cafes')"><i class="fa-solid fa-mug-hot"></i> Restaurants & Cafes</a></li>
+                    <li><a href="#about" onclick="openModal('Healthcare & Clinics')"><i class="fa-solid fa-house-medical"></i> Healthcare & Clinics</a></li>
+                    <li><a href="#about" onclick="openModal('Manufacturing Plants')"><i class="fa-solid fa-gears"></i> Factories & Plants</a></li>
+                    <li><a href="#about" onclick="openModal('Co-working Spaces')"><i class="fa-solid fa-door-open"></i> Co-working Spaces</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </li>
+
+          <li><a href="#about">Overview</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#modules">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <a href="#pricing" class="login-link" onclick="openModal('Sign In')">Login</a>
+        <button class="btn-traco btn-primary btn-sm" onclick="openModal('Free Trial')">
+          <span>Try It Free</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO CAROUSEL SECTION (TRACOLAB 3-SLIDE DYNAMIC HERO)
+       ========================================================= -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-slider-container">
+      
+      <!-- Slide 1: CRM & Customer Relations -->
+      <div class="hero-slide active" data-slide="1">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i class="fa-solid fa-circle" style="color: #00a1ff; font-size: 0.6rem;"></i>
+              <span>Next-Gen Enterprise Management</span>
+            </div>
+            <h1>Stay Connected with <br><span class="text-highlight">Your Customers</span></h1>
+            <p class="hero-lead">Organize contacts, automate follow-ups, convert qualified leads, and never let a lucrative deal slip through the cracks across any of your subsidiaries.</p>
+            <div class="hero-actions">
+              <button class="btn-traco btn-primary" onclick="openModal('CRM Trial')">
+                <span>Start Free Trial</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <a href="#modules" class="btn-traco btn-outline">
+                <i class="fa-solid fa-play"></i>
+                <span>Explore Modules</span>
+              </a>
+            </div>
+            <div class="hero-meta">
+              <span><i class="fa-solid fa-circle-check"></i> Unlimited Users</span>
+              <span><i class="fa-solid fa-circle-check"></i> No Credit Card Required</span>
+              <span><i class="fa-solid fa-circle-check"></i> 14-Day Free Access</span>
+            </div>
+          </div>
+
+          <!-- Hero Visual: Console Preview -->
+          <div class="hero-console-wrap">
+            <div class="floating-pill pill-top">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Multi-Company Ledger Active</span>
+            </div>
+
+            <div class="hero-console">
+              <div class="console-header">
+                <div class="console-dots"><span></span><span></span><span></span></div>
+                <div class="console-badge"><i class="fa-solid fa-signal"></i> Live Cloud Instance</div>
+              </div>
+              <div class="console-body">
+                <div class="console-stat-grid">
+                  <div class="c-stat-box">
+                    <div class="c-stat-label">Active Entities</div>
+                    <div class="c-stat-value blue">6</div>
+                  </div>
+                  <div class="c-stat-box">
+                    <div class="c-stat-label">Cycle Payroll</div>
+                    <div class="c-stat-value green">₹18.2L</div>
+                  </div>
+                  <div class="c-stat-box">
+                    <div class="c-stat-label">Open Deals</div>
+                    <div class="c-stat-value">214</div>
+                  </div>
+                </div>
+
+                <div class="console-chart-box">
+                  <div class="chart-box-title">
+                    <span>Weekly Workforce Attendance</span>
+                    <span class="tag">98.4% Present</span>
+                  </div>
+                  <div class="console-bars-mock">
+                    <div class="c-bar" style="height: 48%;" title="Mon: 92%"></div>
+                    <div class="c-bar" style="height: 75%;" title="Tue: 96%"></div>
+                    <div class="c-bar" style="height: 62%;" title="Wed: 94%"></div>
+                    <div class="c-bar" style="height: 88%;" title="Thu: 99%"></div>
+                    <div class="c-bar" style="height: 94%;" title="Fri: 100%"></div>
+                    <div class="c-bar" style="height: 52%;" title="Sat: 91%"></div>
+                    <div class="c-bar" style="height: 70%;" title="Sun: 95%"></div>
+                  </div>
+                </div>
+
+                <div class="console-activity">
+                  <div class="c-feed-item">
+                    <span><i class="fa-solid fa-box-open" style="color: #00a1ff;"></i> Inventory Reorder Alert: 7 SKUs</span>
+                    <span class="status">Auto PO</span>
+                  </div>
+                  <div class="c-feed-item">
+                    <span><i class="fa-solid fa-user-check" style="color: #10b981;"></i> Field Staff Checked-in: 32 / 35</span>
+                    <span class="status">GPS Sync</span>
+                  </div>
+                  <div class="c-feed-item">
+                    <span><i class="fa-solid fa-file-invoice" style="color: #f59e0b;"></i> Invoices Pending Approval: 4</span>
+                    <span class="status">Review</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="floating-pill pill-bottom">
+              <i class="fa-solid fa-bolt" style="color: #f59e0b;"></i>
+              <span>Double-Entry Reconciliation: 100%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: HRMS & Payroll -->
+      <div class="hero-slide" data-slide="2">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i class="fa-solid fa-circle" style="color: #10b981; font-size: 0.6rem;"></i>
+              <span>Complete Workforce Automation</span>
+            </div>
+            <h1>One Platform for <br><span class="text-highlight">All Your HR Needs</span></h1>
+            <p class="hero-lead">Leave management, biometric sync, shift planning, tax deductions, and salary disbursements — all executed seamlessly with just a few clicks.</p>
+            <div class="hero-actions">
+              <button class="btn-traco btn-primary" onclick="openModal('HRMS Demo')">
+                <span>Try HRMS Free</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <a href="#features" class="btn-traco btn-outline">
+                <i class="fa-solid fa-sliders"></i>
+                <span>See Capabilities</span>
+              </a>
+            </div>
+            <div class="hero-meta">
+              <span><i class="fa-solid fa-circle-check"></i> Biometric Device Sync</span>
+              <span><i class="fa-solid fa-circle-check"></i> Compliant Payslips</span>
+              <span><i class="fa-solid fa-circle-check"></i> Multi-Branch Shifts</span>
+            </div>
+          </div>
+
+          <!-- Hero Visual: HR Console -->
+          <div class="hero-console-wrap">
+            <div class="floating-pill pill-top">
+              <i class="fa-solid fa-id-card-clip"></i>
+              <span>Active Staff: 380 Members</span>
+            </div>
+
+            <div class="hero-console">
+              <div class="console-header">
+                <div class="console-dots"><span></span><span></span><span></span></div>
+                <div class="console-badge"><i class="fa-solid fa-fingerprint"></i> Biometric Sync Active</div>
+              </div>
+              <div class="console-body">
+                <div class="console-stat-grid">
+                  <div class="c-stat-box">
+                    <div class="c-stat-label">On-Time Punch</div>
+                    <div class="c-stat-value green">94.8%</div>
+                  </div>
+                  <div class="c-stat-box">
+                    <div class="c-stat-label">Leave Requests</div>
+                    <div class="c-stat-value blue">5 Pending</div>
+                  </div>
+                  <div class="c-stat-box">
+                    <div class="c-stat-label">Tax Computed</div>
+                    <div class="c-stat-value">₹4.6L</div>
+                  </div>
+                </div>
+
+                <div class="console-activity">
+                  <div class="c-feed-item">
+                    <span><i class="fa-solid fa-wallet" style="color: #10b981;"></i> October Salary Batch Generated</span>
+                    <span class="status">Approved</span>
+                  </div>
+                  <div class="c-feed-item">
+                    <span><i class="fa-solid fa-calendar-check" style="color: #00a1ff;"></i> Shift Rotation Scheduled: Night Branch</span>
+                    <span class="status">Synced</span>
+                  </div>
+                  <div class="c-feed-item">
+                    <span><i class="fa-solid fa-file-pdf" style="color: #6366f1;"></i> 142 Digital Payslips Dispatched</span>
+                    <span class="status">Sent</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="floating-pill pill-bottom">
+              <i class="fa-solid fa-clock" style="color: #10b981;"></i>
+              <span>Zero Spreadsheets · Zero Errors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Smart Monitoring & Productivity -->
+      <div class="hero-slide" data-slide="3">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i class="fa-solid fa-circle" style="color: #6366f1; font-size: 0.6rem;"></i>
+              <span>Desktop & Field Visibility</span>
+            </div>
+            <h1>Boost Productivity with <br><span class="text-highlight">Smart Monitoring</span></h1>
+            <p class="hero-lead">Monitor workstation activity, track application usage, dispatch tasks with deadlines, and record verified on-site field check-ins with location tags.</p>
+            <div class="hero-actions">
+              <button class="btn-traco btn-primary" onclick="openModal('Monitoring Trial')">
+                <span>Start Free Trial</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <a href="#contact" class="btn-traco btn-outline">
+                <i class="fa-solid fa-headset"></i>
+                <span>Book a Live Demo</span>
+              </a>
+            </div>
+            <div class="hero-meta">
+              <span><i class="fa-solid fa-circle-check"></i> GPS Geo-fencing</span>
+              <span><i class="fa-solid fa-circle-check"></i> Activity Reports</span>
+              <span><i class="fa-solid fa-circle-check"></i> Privacy Compliant</span>
+            </div>
+          </div>
+
+          <!-- Hero Visual: Monitoring Console -->
+          <div class="hero-console-wrap">
+            <div class="floating-pill pill-top">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              <span>Live Field Agents: 35 Online</span>
+            </div>
+
+            <div class="hero-console">
+              <div class="console-header">
+                <div class="console-dots"><span></span><span></span><span></span></div>
+                <div class="console-badge"><i class="fa-solid fa-chart-pie"></i> Productivity Score: 92%</div>
+              </div>
+              <div class="console-body">
+                <div class="console-stat-grid">
+                  <div class="c-stat-box">
+                    <div class="c-stat-label">Logged Hours</div>
+                    <div class="c-stat-value blue">1,480h</div>
+                  </div>
+                  <div class="c-stat-box">
+                    <div class="c-stat-label">Active Desktops</div>
+                    <div class="c-stat-value green">42 / 45</div>
+                  </div>
+                  <div class="c-stat-box">
+                    <div class="c-stat-label">Site Visits</div>
+                    <div class="c-stat-value">68 Today</div>
+                  </div>
+                </div>
+
+                <div class="console-activity">
+                  <div class="c-feed-item">
+                    <span><i class="fa-solid fa-map-pin" style="color: #00a1ff;"></i> Sector 44 Site Visit Checked In (10:14 AM)</span>
+                    <span class="status">Verified</span>
+                  </div>
+                  <div class="c-feed-item">
+                    <span><i class="fa-solid fa-display" style="color: #10b981;"></i> Design Dept Productive Time: 8.4 hrs/day</span>
+                    <span class="status">High</span>
+                  </div>
+                  <div class="c-feed-item">
+                    <span><i class="fa-solid fa-list-check" style="color: #8b5cf6;"></i> 18 Milestone Deliverables Closed</span>
+                    <span class="status">On-Time</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="floating-pill pill-bottom">
+              <i class="fa-solid fa-lock" style="color: #00a1ff;"></i>
+              <span>Secure Cloud Storage · Encrypted</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Controls (Dots & Arrows) -->
+      <div class="slider-controls">
+        <div class="slider-dots">
+          <button class="slider-dot active" onclick="goToSlide(1)" aria-label="Go to Slide 1"></button>
+          <button class="slider-dot" onclick="goToSlide(2)" aria-label="Go to Slide 2"></button>
+          <button class="slider-dot" onclick="goToSlide(3)" aria-label="Go to Slide 3"></button>
+        </div>
+        <div class="slider-arrows">
+          <button class="slider-arrow-btn" onclick="prevSlide()" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="slider-arrow-btn" onclick="nextSlide()" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       APP ECOSYSTEM QUICK RIBBON (TRACOLAB STYLE)
+       ========================================================= -->
+  <div class="apps-ribbon">
+    <div class="container ribbon-grid">
+      <a href="#modules" class="ribbon-item"><i class="fa-solid fa-calculator"></i> Accounting</a>
+      <a href="#modules" class="ribbon-item"><i class="fa-solid fa-user-group"></i> CRM & Sales</a>
+      <a href="#modules" class="ribbon-item"><i class="fa-solid fa-user-tie"></i> HRMS & Payroll</a>
+      <a href="#modules" class="ribbon-item"><i class="fa-solid fa-desktop"></i> Desktop Monitor</a>
+      <a href="#modules" class="ribbon-item"><i class="fa-solid fa-map-location-dot"></i> Field Operations</a>
+      <a href="#modules" class="ribbon-item"><i class="fa-solid fa-warehouse"></i> Inventory</a>
+      <a href="#modules" class="ribbon-item"><i class="fa-solid fa-truck-fast"></i> Order Processing</a>
+      <a href="#modules" class="ribbon-item"><i class="fa-solid fa-building-columns"></i> Multi-Company</a>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       CALL TO ACTION ACCENT BANNER (TRACOLAB EXACT CTA SECTION)
+       ========================================================= -->
+  <section class="call-to-action" id="call-to-action">
+    <div class="container cta-inner">
+      <div class="cta-text">
+        <h3>Ready to Simplify Your Business Operations?</h3>
+        <p>Start managing your customers, employees, inventory, and finances with one unified platform. Try it free today and experience the difference.</p>
+      </div>
+      <div class="cta-buttons">
+        <button class="btn-traco btn-white" onclick="openModal('Free Demo Request')">
+          <span>Get a Free Demo</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="btn-traco btn-outline" style="border-color: #ffffff; color: #ffffff;" onclick="openModal('Trial CTA')">
+          <span>Start Free Trial</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ABOUT US SECTION (TRACOLAB ABOUT US LAYOUT)
+       ========================================================= -->
+  <section class="section" id="about">
+    <div class="container">
+      
+      <div class="section-title">
+        <span class="badge-tag">About Us</span>
+        <h2>Helping Businesses Grow Smarter with Unified Software</h2>
+        <p>We build high-performance software that enables multi-company operators to run accounting, HR, CRM, and logistics from a single dashboard.</p>
+      </div>
+
+      <div class="about-grid">
+        
+        <!-- Left Visual Card -->
+        <div class="about-image-card">
+          <span class="about-preview-badge"><i class="fa-solid fa-check-double"></i> Enterprise Architecture</span>
+          <h4>One System. Every Subsidiary. Zero Data Silos.</h4>
+          <p style="color: var(--muted-color); font-size: 0.95rem; line-height: 1.65;">
+            Traditional ERP software forces business owners to juggle separate subscriptions, disparate databases, and complicated synchronizers. CoverseERP replaces that patchwork with one unified data model.
+          </p>
+
+          <div class="about-metrics">
+            <div class="metric-box">
+              <h5>1,400+</h5>
+              <p>Active Companies Running on Cloud</p>
+            </div>
+            <div class="metric-box">
+              <h5>99.98%</h5>
+              <p>Enterprise Infrastructure Uptime</p>
+            </div>
+            <div class="metric-box">
+              <h5>₹0</h5>
+              <p>Per-Seat Penalty Fees Ever</p>
+            </div>
+            <div class="metric-box">
+              <h5>24/7</h5>
+              <p>Priority Technical Onboarding</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content & Bullet Points -->
+        <div class="about-content">
+          <span class="sub-heading">Trusted Solutions for Smarter Business Management</span>
+          <h3>All-in-One Platform to Run Your Entire Business Smoothly</h3>
+          <p class="lead-text">
+            CoverseERP combines robust tools for CRM, Financial Accounting, HRMS, and Team Tracking so your business operates with clockwork precision.
+          </p>
+
+          <div class="about-features-list">
+            
+            <div class="about-feature-item">
+              <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+              <div>
+                <h5>True Multi-Company Tenancy</h5>
+                <p>Add unlimited legal entities, branch offices, and retail stores with segregated books and rolled-up financial reporting.</p>
+              </div>
+            </div>
+
+            <div class="about-feature-item">
+              <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+              <div>
+                <h5>Automated Double-Entry Accounting</h5>
+                <p>Every sale, supplier invoice, and payroll disbursement posts straight into the general ledger with automated tax compliance.</p>
+              </div>
+            </div>
+
+            <div class="about-feature-item">
+              <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+              <div>
+                <h5>Integrated Field & Desktop Visibility</h5>
+                <p>Track remote field visits via GPS check-ins and monitor office workstation activity without needing multiple standalone apps.</p>
+              </div>
+            </div>
+
+            <div class="about-feature-item">
+              <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+              <div>
+                <h5>Rapid 7-Day Implementation</h5>
+                <p>Import your existing chart of accounts, employees, and inventory records with automated CSV templates and guided onboarding.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="btn-traco btn-primary" onclick="openModal('About Guided Tour')">
+            <span>Discover the Architecture</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STATS COUNTER SECTION (TRACOLAB EXACT STATS)
+       ========================================================= -->
+  <section class="stats-section" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>45,000+</h3>
+          <p>Active Users Daily</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-building"></i></div>
+          <h3>1,400+</h3>
+          <p>Businesses Served</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-cubes"></i></div>
+          <h3>15+</h3>
+          <p>Enterprise Modules</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>99.98%</h3>
+          <p>Uptime Guarantee</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FEATURES SHOWCASE (TRACOLAB TABBED FEATURE SECTION)
+       ========================================================= -->
+  <section class="section light-background" id="features">
+    <div class="container">
+      
+      <div class="section-title">
+        <span class="badge-tag">Platform Features</span>
+        <h2>All-in-One Platform to Run Your Business Smoothly</h2>
+        <p>Explore the four foundational pillars that eliminate spreadsheets and power multi-entity enterprise operations.</p>
+      </div>
+
+      <!-- Feature Selection Tabs -->
+      <div class="features-tabs">
+        <div class="feature-tab-btn active" onclick="selectTab(0)">
+          <i class="fa-solid fa-chart-pie"></i>
+          <div>
+            <h4>Real-Time Analytics</h4>
+            <span>Instant KPI Insights</span>
+          </div>
+        </div>
+
+        <div class="feature-tab-btn" onclick="selectTab(1)">
+          <i class="fa-solid fa-user-check"></i>
+          <div>
+            <h4>HR & Payroll</h4>
+            <span>Automated Salary Runs</span>
+          </div>
+        </div>
+
+        <div class="feature-tab-btn" onclick="selectTab(2)">
+          <i class="fa-solid fa-list-check"></i>
+          <div>
+            <h4>Project & Tasks</h4>
+            <span>Collaborative Workflows</span>
+          </div>
+        </div>
+
+        <div class="feature-tab-btn" onclick="selectTab(3)">
+          <i class="fa-solid fa-desktop"></i>
+          <div>
+            <h4>Desktop Monitoring</h4>
+            <span>Productivity & Field GPS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content Pane 1: Analytics -->
+      <div class="feature-tab-content">
+        
+        <div class="feature-pane active" id="pane-0">
+          <div class="pane-text">
+            <h3>Real-Time Analytics & Consolidated Reporting</h3>
+            <p>Make data-backed decisions without waiting for end-of-month accountant spreadsheets. CoverseERP aggregates cash flow, order pipelines, inventory turnover, and workforce performance across all your entities simultaneously.</p>
+            <ul class="pane-bullets">
+              <li><i class="fa-solid fa-circle-check"></i> Multi-company consolidated P&L and Balance Sheet reports.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Live revenue forecasts, gross margin tracking, and expense breakdown.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Exportable audit-ready formats for banks, auditors, and board decks.</li>
+            </ul>
+            <button class="btn-traco btn-primary btn-sm" onclick="openModal('Analytics Demo')">Try Analytics Free</button>
+          </div>
+          <div class="pane-card-mock">
+            <div class="mock-header">
+              <h5>Consolidated Executive Dashboard</h5>
+              <span class="badge-sub">Live Sync</span>
+            </div>
+            <div class="mock-row">
+              <span>Gross Revenue (Q3)</span>
+              <span>₹1.42 Cr (+24%)</span>
+            </div>
+            <div class="mock-row">
+              <span>Average Collection Period</span>
+              <span>18 Days</span>
+            </div>
+            <div class="mock-row">
+              <span>Fastest Moving Subsidiary</span>
+              <span>Pier Logistics</span>
+            </div>
+            <div class="mock-row">
+              <span>Current Cash Position</span>
+              <span>₹42.8 Lakh</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content Pane 2: HR & Payroll -->
+        <div class="feature-pane" id="pane-1">
+          <div class="pane-text">
+            <h3>Automated HRMS, Shift Rosters & 1-Click Payroll</h3>
+            <p>Handle attendance, shift scheduling, leaves, biometric punch records, statutory deductions (PF, ESIC, TDS), and direct bank transfers without touching a spreadsheet.</p>
+            <ul class="pane-bullets">
+              <li><i class="fa-solid fa-circle-check"></i> Seamless sync with biometric machines and mobile geo-punch.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Automated calculation of overtime, paid leaves, and bonus components.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Direct digital payslip delivery to employee portal and email.</li>
+            </ul>
+            <button class="btn-traco btn-primary btn-sm" onclick="openModal('HRMS Demo')">Explore HRMS</button>
+          </div>
+          <div class="pane-card-mock">
+            <div class="mock-header">
+              <h5>Payroll Run Status (October Cycle)</h5>
+              <span class="badge-sub" style="background: #ecfdf5; color: #10b981;">Ready to Disburse</span>
+            </div>
+            <div class="mock-row">
+              <span>Eligible Employees</span>
+              <span>248 Staff Members</span>
+            </div>
+            <div class="mock-row">
+              <span>Gross Salary Pool</span>
+              <span>₹22,40,000</span>
+            </div>
+            <div class="mock-row">
+              <span>Statutory Compliance Deductions</span>
+              <span>₹3,18,500</span>
+            </div>
+            <div class="mock-row">
+              <span>Reconciliation Ledger</span>
+              <span>Auto-Posted to Books</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content Pane 3: Projects & Tasks -->
+        <div class="feature-pane" id="pane-2">
+          <div class="pane-text">
+            <h3>Project Milestones & Task Dispatch</h3>
+            <p>Assign tasks, set SLA deadlines, track deliverable progress, and coordinate between office project managers and on-site execution teams seamlessly.</p>
+            <ul class="pane-bullets">
+              <li><i class="fa-solid fa-circle-check"></i> Kanban boards, Gantt milestone schedules, and list views.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Task dependency triggers and automated escalation alerts.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Time tracking linked directly to customer billing and cost accounting.</li>
+            </ul>
+            <button class="btn-traco btn-primary btn-sm" onclick="openModal('Projects Demo')">See Project Tools</button>
+          </div>
+          <div class="pane-card-mock">
+            <div class="mock-header">
+              <h5>Active Project Pipelines</h5>
+              <span class="badge-sub">28 In Progress</span>
+            </div>
+            <div class="mock-row">
+              <span>Metro Line Cable Laying</span>
+              <span>88% Complete</span>
+            </div>
+            <div class="mock-row">
+              <span>Q4 Warehouse Renovation</span>
+              <span>On Schedule</span>
+            </div>
+            <div class="mock-row">
+              <span>Apparel Autumn Production Run</span>
+              <span>1,200 Units Dispatched</span>
+            </div>
+            <div class="mock-row">
+              <span>Open Field Tickets</span>
+              <span>2 Pending Verification</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content Pane 4: Desktop Monitoring -->
+        <div class="feature-pane" id="pane-3">
+          <div class="pane-text">
+            <h3>Employee Desktop Monitoring & Field Staff Tracking</h3>
+            <p>Maintain transparency, prevent time leakage, and verify field work with non-intrusive monitoring software built specifically for modern hybrid teams.</p>
+            <ul class="pane-bullets">
+              <li><i class="fa-solid fa-circle-check"></i> Workstation idle vs. productive application time monitoring.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Mobile app with GPS-tagged site arrival and departure verification.</li>
+              <li><i class="fa-solid fa-circle-check"></i> Enterprise role permissions and strict data privacy compliance.</li>
+            </ul>
+            <button class="btn-traco btn-primary btn-sm" onclick="openModal('Monitoring Demo')">Test Monitoring</button>
+          </div>
+          <div class="pane-card-mock">
+            <div class="mock-header">
+              <h5>Workforce Productivity Overview</h5>
+              <span class="badge-sub">35 Active Desktops</span>
+            </div>
+            <div class="mock-row">
+              <span>Average Daily Work Time</span>
+              <span>7.9 Hours</span>
+            </div>
+            <div class="mock-row">
+              <span>Productive App Ratio</span>
+              <span>91.4%</span>
+            </div>
+            <div class="mock-row">
+              <span>Field Staff On-Site Rate</span>
+              <span>97.2%</span>
+            </div>
+            <div class="mock-row">
+              <span>Real-Time Check-In Map</span>
+              <span>Active in 4 Cities</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       OUR SERVICES / MODULES (TRACOLAB EXACT CARD GRID)
+       ========================================================= -->
+  <section class="section" id="modules">
+    <div class="container">
+      
+      <div class="section-title">
+        <span class="badge-tag">Our Services</span>
+        <h2>All-in-One Software Solutions for Modern Business</h2>
+        <p>Comprehensive enterprise applications designed to streamline every facet of your operations from lead generation to final delivery.</p>
+      </div>
+
+      <div class="services-grid">
+        
+        <!-- Module 1: HRMS (Tracolab Exact Service 1) -->
+        <div class="service-item">
+          <div class="icon">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <h3>HRMS & Global Payroll</h3>
+          <p>Automate employee records, attendance punch records, leave applications, appraisals, and multi-company salary runs with zero spreadsheet errors.</p>
+          <div class="service-tags">
+            <span>Biometric Sync</span>
+            <span>Tax Compliant</span>
+            <span>Salary Slips</span>
+          </div>
+          <a href="javascript:void(0)" class="service-link" onclick="openModal('HRMS Module')">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Module 2: CRM (Tracolab Exact Service 2) -->
+        <div class="service-item">
+          <div class="icon">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <h3>CRM & Sales Pipeline</h3>
+          <p>Capture leads, track prospect interactions, manage deal stages, issue automated quotes, and close contracts faster across all your sales reps.</p>
+          <div class="service-tags">
+            <span>Lead Tracking</span>
+            <span>Quotation Builder</span>
+            <span>Customer 360</span>
+          </div>
+          <a href="javascript:void(0)" class="service-link" onclick="openModal('CRM Module')">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Module 3: Employee Desktop Monitoring (Tracolab Exact Service 3) -->
+        <div class="service-item">
+          <div class="icon">
+            <i class="fa-solid fa-desktop"></i>
+          </div>
+          <h3>Employee Desktop Monitoring</h3>
+          <p>Monitor workstation productivity, track active vs. idle software usage, and ensure total accountability with lightweight desktop agents.</p>
+          <div class="service-tags">
+            <span>App Usage</span>
+            <span>Productivity Score</span>
+            <span>Privacy Compliant</span>
+          </div>
+          <a href="javascript:void(0)" class="service-link" onclick="openModal('Desktop Monitoring Module')">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Module 4: Sharing Office (Tracolab Exact Service 4) -->
+        <div class="service-item">
+          <div class="icon">
+            <i class="fa-solid fa-building-user"></i>
+          </div>
+          <h3>Sharing Office & Desk Booking</h3>
+          <p>Coordinate shared office resources, flexible desk allocations, conference meeting rooms, and equipment reservations across multiple locations.</p>
+          <div class="service-tags">
+            <span>Desk Reservations</span>
+            <span>Room Schedules</span>
+            <span>Asset Allocations</span>
+          </div>
+          <a href="javascript:void(0)" class="service-link" onclick="openModal('Sharing Office Module')">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Module 5: Order Processing (Tracolab Exact Service 5) -->
+        <div class="service-item">
+          <div class="icon">
+            <i class="fa-solid fa-boxes-packing"></i>
+          </div>
+          <h3>Order Processing & Fulfillment</h3>
+          <p>Streamline customer order workflows from placement and credit approval down through warehouse picking, packing, dispatch, and final delivery.</p>
+          <div class="service-tags">
+            <span>Order-to-Cash</span>
+            <span>Dispatch Slips</span>
+            <span>Real-time Tracking</span>
+          </div>
+          <a href="javascript:void(0)" class="service-link" onclick="openModal('Order Processing Module')">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Module 6: Stock & Inventory (Tracolab Exact Service 6) -->
+        <div class="service-item">
+          <div class="icon">
+            <i class="fa-solid fa-warehouse"></i>
+          </div>
+          <h3>Stock & Smart Inventory</h3>
+          <p>Track real-time stock levels across warehouses, configure low-stock reorder thresholds, and manage batch, lot, and serial numbers effortlessly.</p>
+          <div class="service-tags">
+            <span>Multi-Warehouse</span>
+            <span>Reorder Triggers</span>
+            <span>Valuation Reports</span>
+          </div>
+          <a href="javascript:void(0)" class="service-link" onclick="openModal('Inventory Module')">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Module 7: Accounts (Tracolab Exact Service 7) -->
+        <div class="service-item">
+          <div class="icon">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </div>
+          <h3>Accounts & General Ledger</h3>
+          <p>Automate double-entry journals, track bills, manage receivables, perform bank reconciliations, and generate real-time multi-currency financial statements.</p>
+          <div class="service-tags">
+            <span>General Ledger</span>
+            <span>Multi-Currency</span>
+            <span>Tax Statements</span>
+          </div>
+          <a href="javascript:void(0)" class="service-link" onclick="openModal('Accounts Module')">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Module 8: Multi-Company Architecture (CoverseERP Core Strength) -->
+        <div class="service-item">
+          <div class="icon">
+            <i class="fa-solid fa-sitemap"></i>
+          </div>
+          <h3>Multi-Company Architecture</h3>
+          <p>Run 2, 5, or 20 distinct business entities under a single master administrator account with strictly partitioned data and consolidated reporting.</p>
+          <div class="service-tags">
+            <span>Unlimited Entities</span>
+            <span>Group Rollups</span>
+            <span>Granular Roles</span>
+          </div>
+          <a href="javascript:void(0)" class="service-link" onclick="openModal('Multi-Company Engine')">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Module 9: Mobile App For Operators (Tracolab Mobile Access) -->
+        <div class="service-item">
+          <div class="icon">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
+          <h3>Mobile App for Owners & Staff</h3>
+          <p>Approve purchase invoices, check bank balances, verify on-site staff attendance, and monitor warehouse stock directly from Android and iOS devices.</p>
+          <div class="service-tags">
+            <span>iOS & Android</span>
+            <span>Instant Approvals</span>
+            <span>Push Notifications</span>
+          </div>
+          <a href="javascript:void(0)" class="service-link" onclick="openModal('Mobile App Module')">
+            <span>Learn more</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PARTNERS / TRUST STRIP (TRACOLAB GALLERY STYLE)
+       ========================================================= -->
+  <div class="partners-section" id="gallery">
+    <div class="container">
+      <div class="partners-heading">Trusted by Leading Operators Across Manufacturing, Retail & Field Operations</div>
+      <div class="partners-grid">
+        <div class="partner-brand"><i class="fa-solid fa-industry"></i> <span>Halden Textiles</span></div>
+        <div class="partner-brand"><i class="fa-solid fa-building-shield"></i> <span>Marrow Build Co.</span></div>
+        <div class="partner-brand"><i class="fa-solid fa-anchor"></i> <span>Pier Logistics</span></div>
+        <div class="partner-brand"><i class="fa-solid fa-shop"></i> <span>Orinda Retail</span></div>
+        <div class="partner-brand"><i class="fa-solid fa-gears"></i> <span>Kestrel Works</span></div>
+        <div class="partner-brand"><i class="fa-solid fa-truck-moving"></i> <span>Apex Freight</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       TESTIMONIALS SECTION (TRACOLAB EXACT TESTIMONIALS)
+       ========================================================= -->
+  <section class="section light-background" id="testimonials">
+    <div class="container">
+      
+      <div class="section-title">
+        <span class="badge-tag">Testimonials</span>
+        <h2>What Our Enterprise Customers Say</h2>
+        <p>Discover how operators scaled operations, eliminated payroll discrepancies, and consolidated multi-entity books.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <blockquote>
+            "We manage 4 separate manufacturing and trading companies under one CoverseERP account. Payroll used to take our accounting team 2 full days every month — now it's completed in an afternoon with zero discrepancy."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">RS</div>
+            <div class="author-info">
+              <h5>Radhika Suri</h5>
+              <span>Operations Director, Marrow Build Co.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <blockquote>
+            "The combination of GPS field check-in and inventory tracking is unmatched. Our logistics team in Noida dispatches 400+ shipments daily and the stock levels adjust across both warehouses in real time."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">VK</div>
+            <div class="author-info">
+              <h5>Vikram Kapoor</h5>
+              <span>Managing Partner, Pier Logistics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <blockquote>
+            "Other ERPs quoted us astronomical per-user licensing fees for our 90 employees. CoverseERP gave us unlimited seats and allowed us to configure CRM, Accounts, and Desktop Monitoring without hidden charges."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">AM</div>
+            <div class="author-info">
+              <h5>Ananya Mehta</h5>
+              <span>Founder, Orinda Retail Group</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PRICING PLANS (TRACOLAB STYLE WITH SWITCHER)
+       ========================================================= -->
+  <section class="section" id="pricing">
+    <div class="container">
+      
+      <div class="section-title">
+        <span class="badge-tag">Transparent Pricing</span>
+        <h2>Predictable Plans for Growing Businesses</h2>
+        <p>No penalty fees for adding employees. Unlimited users on every single plan.</p>
+      </div>
+
+      <!-- Monthly / Annual Toggle -->
+      <div class="pricing-toggle">
+        <span>Monthly Billing</span>
+        <label class="switch-btn">
+          <input type="checkbox" id="pricingBillingSwitch" onchange="togglePricing()">
+          <span class="switch-slider"></span>
+        </label>
+        <span>Annual Billing</span>
+        <span class="discount-badge">Save 20%</span>
+      </div>
+
+      <div class="pricing-grid">
+        
+        <!-- Starter Plan -->
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <p class="plan-desc">For single-entity companies getting off messy spreadsheets.</p>
+          <div class="price-wrap">
+            <span class="price-amount" id="starterPrice">₹2,499</span>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="plan-features">
+            <li><i class="fa-solid fa-check"></i> 1 Legal Entity / Company</li>
+            <li><i class="fa-solid fa-check"></i> Unlimited Team Users</li>
+            <li><i class="fa-solid fa-check"></i> Financial Accounting & Invoicing</li>
+            <li><i class="fa-solid fa-check"></i> Inventory & Stock Tracking</li>
+            <li><i class="fa-solid fa-check"></i> Up to 25 Employee HR Records</li>
+            <li><i class="fa-solid fa-check"></i> Standard Email Support</li>
+          </ul>
+          <button class="btn-traco btn-outline" onclick="openModal('Starter Plan')">Start Free Trial</button>
+        </div>
+
+        <!-- Growth Plan (Featured / Popular) -->
+        <div class="pricing-card featured">
+          <span class="popular-tag">Most Popular</span>
+          <h3>Growth</h3>
+          <p class="plan-desc">Built for owners managing multiple business branches and teams.</p>
+          <div class="price-wrap">
+            <span class="price-amount" id="growthPrice">₹6,999</span>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="plan-features">
+            <li><i class="fa-solid fa-check"></i> <strong>Unlimited Companies & Subsidiaries</strong></li>
+            <li><i class="fa-solid fa-check"></i> <strong>Unlimited Users & Employees</strong></li>
+            <li><i class="fa-solid fa-check"></i> Full HRMS with Automated Payroll Runs</li>
+            <li><i class="fa-solid fa-check"></i> Omnichannel CRM & Sales Pipeline</li>
+            <li><i class="fa-solid fa-check"></i> Desktop & Field Staff GPS Monitoring</li>
+            <li><i class="fa-solid fa-check"></i> Multi-Warehouse Stock & Orders</li>
+            <li><i class="fa-solid fa-check"></i> Priority 24/7 Phone & Email Support</li>
+          </ul>
+          <button class="btn-traco btn-primary" onclick="openModal('Growth Plan')">Start 14-Day Trial</button>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <p class="plan-desc">For large corporate groups requiring tailored workflows and SLAs.</p>
+          <div class="price-wrap">
+            <span class="price-amount">Custom</span>
+            <span class="price-period">/contract</span>
+          </div>
+          <ul class="plan-features">
+            <li><i class="fa-solid fa-check"></i> Everything included in Growth</li>
+            <li><i class="fa-solid fa-check"></i> Custom API Connectors & Integrations</li>
+            <li><i class="fa-solid fa-check"></i> Dedicated Account Manager</li>
+            <li><i class="fa-solid fa-check"></i> On-Premise or Private Cloud Deployment</li>
+            <li><i class="fa-solid fa-check"></i> Guaranteed 99.99% SLA Uptime</li>
+            <li><i class="fa-solid fa-check"></i> Customized Staff Training Workshops</li>
+          </ul>
+          <button class="btn-traco btn-outline" onclick="openModal('Enterprise Plan')">Contact Enterprise Sales</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FREQUENTLY ASKED QUESTIONS (TRACOLAB EXACT ACCORDIONS)
+       ========================================================= -->
+  <section class="section light-background" id="faq">
+    <div class="container">
+      
+      <div class="section-title">
+        <span class="badge-tag">Got Questions?</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about setting up CoverseERP for your multi-company business.</p>
+      </div>
+
+      <div class="faq-container">
+        
+        <div class="faq-item active">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3>What types of businesses can use CoverseERP?</h3>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            <p>Our platform is ideal for growing SMEs, manufacturing firms, trading companies, retail chains, contractors, and multi-entity conglomerates. Because our modules can be turned on or off per company, you only use what fits each branch's exact workflow.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3>How does multi-company management work under one login?</h3>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            <p>You log in once as master administrator and switch between companies instantly from a top dropdown. Each entity maintains its own segregated books, bank accounts, inventory, and employees, while the master view provides unified rollup financial statements.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3>Is employee desktop and field monitoring legal and secure?</h3>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            <p>Yes, CoverseERP is fully compliant with enterprise privacy and data regulations. Workstation tracking only monitors work hours and productive software usage with transparent employee consent. All data is encrypted in transit and at rest using bank-grade 256-bit encryption.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3>Can I customize modules like Inventory or Accounting?</h3>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            <p>Absolutely. You can customize invoice layouts, chart of accounts, approval workflows, custom tax rules, and user permission groups without needing developer intervention.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3>Do you provide onboarding and data migration assistance?</h3>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            <p>Yes. We offer guided CSV migration templates to bring in your existing customers, vendors, opening balances, and employee master records. Our customer success team provides live video walkthroughs and dedicated onboarding support.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3>Is CoverseERP cloud-hosted or on-premise?</h3>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            <p>CoverseERP runs on high-availability cloud infrastructure with automated hourly backups. For enterprise groups with specific compliance policies, we also offer dedicated private cloud or on-premise installation options.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTACT US & SCHEDULE DEMO (TRACOLAB CONTACT LAYOUT)
+       ========================================================= -->
+  <section class="section" id="contact">
+    <div class="container">
+      
+      <div class="section-title">
+        <span class="badge-tag">Get in Touch</span>
+        <h2>Contact Our Solutions Team</h2>
+        <p>We are here to answer your technical questions, assist with setup, and schedule a customized live demonstration.</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Left: Contact Details Cards -->
+        <div class="contact-info-cards">
+          
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <h4>Our Address</h4>
+            <p>C-535 block c urbtech trade center , sector 132 noida</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <h4>Call Us</h4>
+            <p><a href="tel:+919958089836" style="color: inherit; font-weight: 600;">+91 9958089836</a><br>Mon – Sat: 9:00 AM – 7:00 PM</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <h4>Email Support</h4>
+            <p><a href="mailto:info@coverseerp.com" style="color: inherit;">info@coverseerp.com</a><br><a href="mailto:support@coverseerp.com" style="color: inherit;">support@coverseerp.com</a></p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+            <h4>Live Support</h4>
+            <p>24/7 Dedicated SLA Monitoring for Growth & Enterprise Clients</p>
+          </div>
+
+        </div>
+
+        <!-- Right: Interactive Contact & Demo Form -->
+        <div class="contact-form-card">
+          <h3>Request a Guided Demo</h3>
+          <p>Fill out the form below and an ERP specialist will walk you through a live instance tailored to your business needs.</p>
+
+          <form id="contactDemoForm" onsubmit="handleContactSubmit(event)">
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Full Name *</label>
+                <input type="text" id="contactName" class="form-control" placeholder="e.g. Rahul Sharma" required>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Work Email *</label>
+                <input type="email" id="contactEmail" class="form-control" placeholder="name@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactPhone">Phone Number *</label>
+                <input type="tel" id="contactPhone" class="form-control" placeholder="+91 99580 89836" required>
+              </div>
+              <div class="form-group">
+                <label for="contactCompany">Company Name *</label>
+                <input type="text" id="contactCompany" class="form-control" placeholder="e.g. Apex Global Ltd" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactModules">Primary Modules of Interest</label>
+              <select id="contactModules" class="form-control">
+                <option value="All-in-One ERP & HRMS">All-in-One ERP, CRM & HRMS</option>
+                <option value="HRMS & Payroll">HRMS & Global Payroll Automation</option>
+                <option value="CRM & Pipeline">CRM & Sales Pipeline</option>
+                <option value="Desktop & Field Monitoring">Employee Desktop & Field GPS Monitoring</option>
+                <option value="Accounting & Invoicing">Double-Entry Accounting & Invoicing</option>
+                <option value="Inventory & Warehouses">Multi-Warehouse Inventory & Orders</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">How can we assist you? (Optional)</label>
+              <textarea id="contactMessage" class="form-control" placeholder="Tell us about the number of branches, users, or challenges you're facing..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-traco btn-primary" style="width: 100%;">
+              <span>Book My Personalized Demo</span>
+              <i class="fa-solid fa-calendar-check"></i>
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER (TRACOLAB EXACT RICH MULTI-COLUMN FOOTER)
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Brand & Address -->
+        <div class="footer-brand">
+          <a href="#hero" class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-cube"></i></div>
+            <span>CoverseERP</span>
+          </a>
+          <p>The unified cloud platform built for business operators managing CRM, HRMS, Desktop Monitoring, Accounts, and Field Operations from one screen.</p>
+          
+          <ul class="footer-contact-details">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>C-535 block c urbtech trade center , sector 132 noida</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span><a href="tel:+919958089836" style="color: inherit;">+91 9958089836</a></span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span><a href="mailto:info@coverseerp.com" style="color: inherit;">info@coverseerp.com</a></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Useful Links -->
+        <div class="footer-col">
+          <h4>Useful Links</h4>
+          <ul class="footer-links">
+            <li><a href="#hero"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+            <li><a href="#features"><i class="fa-solid fa-chevron-right"></i> Platform Overview</a></li>
+            <li><a href="#modules"><i class="fa-solid fa-chevron-right"></i> All Modules</a></li>
+            <li><a href="#pricing"><i class="fa-solid fa-chevron-right"></i> Pricing Plans</a></li>
+            <li><a href="#faq"><i class="fa-solid fa-chevron-right"></i> Help & FAQs</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Our Services / Modules -->
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="#modules" onclick="openModal('CRM')"><i class="fa-solid fa-chevron-right"></i> CRM Solutions</a></li>
+            <li><a href="#modules" onclick="openModal('HRMS')"><i class="fa-solid fa-chevron-right"></i> HRMS & Payroll</a></li>
+            <li><a href="#modules" onclick="openModal('Monitoring')"><i class="fa-solid fa-chevron-right"></i> Employee Monitoring</a></li>
+            <li><a href="#modules" onclick="openModal('Orders')"><i class="fa-solid fa-chevron-right"></i> Order Management</a></li>
+            <li><a href="#modules" onclick="openModal('Inventory')"><i class="fa-solid fa-chevron-right"></i> Stock & Inventory</a></li>
+            <li><a href="#modules" onclick="openModal('Accounts')"><i class="fa-solid fa-chevron-right"></i> Financial Accounts</a></li>
+            <li><a href="#modules" onclick="openModal('Office Sharing')"><i class="fa-solid fa-chevron-right"></i> Sharing Office</a></li>
+          </ul>
+        </div>
+
+        <!-- Support & Security -->
+        <div class="footer-col">
+          <h4>Support & Security</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="openModal('Documentation')"><i class="fa-solid fa-chevron-right"></i> Documentation</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('API Docs')"><i class="fa-solid fa-chevron-right"></i> API Reference</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('Security Portal')"><i class="fa-solid fa-chevron-right"></i> Security Compliance</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('Cloud Status')"><i class="fa-solid fa-chevron-right"></i> Live System Status</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('Terms')"><i class="fa-solid fa-chevron-right"></i> Terms of Service</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('Privacy')"><i class="fa-solid fa-chevron-right"></i> Privacy Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© 2026 CoverseERP. All Rights Reserved. Built for high-growth enterprises.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       MODAL (FREE TRIAL & DEMO POPUP)
+       ========================================================= -->
+  <div class="modal-overlay" id="actionModal" onclick="handleOverlayClick(event)">
+    <div class="modal-box">
+      <div class="modal-head">
+        <div>
+          <h3 id="modalTitle">Start Your 14-Day Free Trial</h3>
+          <p id="modalSubtitle">No credit card required · Instant setup in minutes</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal()" aria-label="Close Modal">&times;</button>
+      </div>
+      
+      <div class="modal-content-inner">
+        <form id="trialForm" onsubmit="handleModalSubmit(event)">
+          <div class="form-group">
+            <label for="trialName">Your Name</label>
+            <input type="text" id="trialName" class="form-control" placeholder="e.g. Rohit Singhania" required>
+          </div>
+
+          <div class="form-group">
+            <label for="trialEmail">Work Email Address</label>
+            <input type="email" id="trialEmail" class="form-control" placeholder="rohit@yourcompany.com" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="trialPhone">Mobile Number</label>
+              <input type="tel" id="trialPhone" class="form-control" placeholder="+91 99580 89836" required>
+            </div>
+            <div class="form-group">
+              <label for="trialCompany">Company Name</label>
+              <input type="text" id="trialCompany" class="form-control" placeholder="e.g. Singhania Logistics" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="trialInterest">Select Plan / Primary Interest</label>
+            <select id="trialInterest" class="form-control">
+              <option value="Growth Plan (Recommended)">Growth Plan (Unlimited Companies & HRMS)</option>
+              <option value="Starter Plan">Starter Plan (Single Entity)</option>
+              <option value="Enterprise Plan">Enterprise Plan (Custom SLA)</option>
+              <option value="CRM & Sales">CRM & Sales Suite</option>
+              <option value="Desktop & Field Tracking">Employee Desktop & Field Tracking</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-traco btn-primary" style="width: 100%; margin-top: 10px;">
+            <span>Get Started Now</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Feedback -->
+  <div class="toast-msg" id="toastMsg">
+    <i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 1.2rem;"></i>
+    <span id="toastText">Request submitted successfully! We will connect with you shortly.</span>
+  </div>
+
+  <!-- =========================================================
+       JAVASCRIPT FOR INTERACTIVITY
+       ========================================================= -->
+  <script>
+    // -------------------------------------------------------------
+    // HERO SLIDER LOGIC
+    // -------------------------------------------------------------
+    let currentSlide = 1;
+    const totalSlides = 3;
+    let autoSlideInterval = null;
+
+    function showSlide(index) {
+      currentSlide = index;
+      document.querySelectorAll('.hero-slide').forEach((slide, idx) => {
+        slide.classList.toggle('active', idx + 1 === currentSlide);
+      });
+      document.querySelectorAll('.slider-dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx + 1 === currentSlide);
+      });
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+      resetAutoSlide();
+    }
+
+    function nextSlide() {
+      let next = currentSlide + 1 > totalSlides ? 1 : currentSlide + 1;
+      showSlide(next);
+      resetAutoSlide();
+    }
+
+    function prevSlide() {
+      let prev = currentSlide - 1 < 1 ? totalSlides : currentSlide - 1;
+      showSlide(prev);
+      resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        let next = currentSlide + 1 > totalSlides ? 1 : currentSlide + 1;
+        showSlide(next);
+      }, 7000);
+    }
+
+    function resetAutoSlide() {
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
+      startAutoSlide();
+    }
+
+    startAutoSlide();
+
+    // -------------------------------------------------------------
+    // MOBILE NAVIGATION TOGGLE
+    // -------------------------------------------------------------
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const navMenu = document.getElementById('navmenu');
+
+    if (mobileNavToggle && navMenu) {
+      mobileNavToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        const icon = mobileNavToggle.querySelector('i');
+        if (navMenu.classList.contains('open')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        } else {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      });
+    }
+
+    // Mega dropdown click on mobile
+    document.querySelectorAll('.has-mega > a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 860) {
+          e.preventDefault();
+          const parent = link.closest('.has-mega');
+          parent.classList.toggle('open');
+        }
+      });
+    });
+
+    // Close mobile nav when clicking normal anchor
+    document.querySelectorAll('.navmenu a:not(.dropdown-trigger)').forEach(a => {
+      a.addEventListener('click', () => {
+        if (navMenu.classList.contains('open')) {
+          navMenu.classList.remove('open');
+          const icon = mobileNavToggle.querySelector('i');
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      });
+    });
+
+    // -------------------------------------------------------------
+    // FEATURE TABS LOGIC
+    // -------------------------------------------------------------
+    function selectTab(index) {
+      document.querySelectorAll('.feature-tab-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', idx === index);
+      });
+      document.querySelectorAll('.feature-pane').forEach((pane, idx) => {
+        pane.classList.toggle('active', idx === index);
+      });
+    }
+
+    // -------------------------------------------------------------
+    // FAQ ACCORDION LOGIC
+    // -------------------------------------------------------------
+    function toggleFaq(headerElement) {
+      const item = headerElement.closest('.faq-item');
+      const wasActive = item.classList.contains('active');
+      
+      // Close other accordion items
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // -------------------------------------------------------------
+    // PRICING TOGGLE (MONTHLY VS ANNUAL)
+    // -------------------------------------------------------------
+    function togglePricing() {
+      const isAnnual = document.getElementById('pricingBillingSwitch').checked;
+      const starter = document.getElementById('starterPrice');
+      const growth = document.getElementById('growthPrice');
+
+      if (isAnnual) {
+        starter.textContent = '₹1,999';
+        growth.textContent = '₹5,599';
+      } else {
+        starter.textContent = '₹2,499';
+        growth.textContent = '₹6,999';
+      }
+    }
+
+    // -------------------------------------------------------------
+    // MODAL DIALOG CONTROLS
+    // -------------------------------------------------------------
+    const actionModal = document.getElementById('actionModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const trialInterest = document.getElementById('trialInterest');
+
+    function openModal(topic) {
+      if (topic) {
+        modalTitle.textContent = `Get Started with ${topic}`;
+        modalSubtitle.textContent = `Claim your 14-day free access to ${topic} · No credit card required`;
+        if (trialInterest) {
+          trialInterest.value = topic.includes('Plan') ? topic : 'Growth Plan (Recommended)';
+        }
+      } else {
+        modalTitle.textContent = 'Start Your 14-Day Free Trial';
+        modalSubtitle.textContent = 'No credit card required · Instant setup in minutes';
+      }
+      actionModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      actionModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handleOverlayClick(event) {
+      if (event.target === actionModal) {
+        closeModal();
+      }
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && actionModal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // -------------------------------------------------------------
+    // FORM SUBMISSION & TOAST NOTIFICATIONS
+    // -------------------------------------------------------------
+    function showToast(message) {
+      const toast = document.getElementById('toastMsg');
+      const toastText = document.getElementById('toastText');
+      toastText.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4500);
+    }
+
+    function handleModalSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('trialName').value;
+      closeModal();
+      showToast(`Thank you, ${name}! Your free trial environment is being provisioned. An invite email has been sent.`);
+      event.target.reset();
+    }
+
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('contactName').value;
+      const company = document.getElementById('contactCompany').value;
+      showToast(`Thank you, ${name}! Your demo request for ${company} was received. Our team will contact you within 2 business hours.`);
+      event.target.reset();
+    }
+  </script>
+
+</body>
+</html>
